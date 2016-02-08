@@ -4,6 +4,9 @@ import {persistState} from 'redux-devtools'
 import reducer from '../reducer'
 import DevTools from '../../root/DevTools'
 
+// To persist debug sessions across page reloads just add to the
+// ?debug_session=<session_name>
+
 const getDebugSessionKey = () => {
   const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/)
 
@@ -11,8 +14,8 @@ const getDebugSessionKey = () => {
 }
 
 const createStoreWithMiddleware = compose(
-  DevTools.instrument(),
-  persistState(getDebugSessionKey())
+  window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
+  window.devToolsExtension ? f => f : persistState(getDebugSessionKey())
 )(createStore)
 
 export default initialState => {

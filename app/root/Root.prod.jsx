@@ -3,7 +3,10 @@ import {Provider} from 'react-redux'
 // files
 import App from '../layouts/App.jsx'
 
-export default ({store}) =>
+export default ({
+  store
+}) => (
   <Provider store={store}>
     <App />
   </Provider>
+)

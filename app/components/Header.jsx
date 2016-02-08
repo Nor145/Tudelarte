@@ -17,7 +17,14 @@ import {
   reverseCreateMenu,
   reverseFavouriteMenu,
   reverseCartMenu
-} from '../redux/modules/app'
+} from '../redux/modules/sideMenus'
+
+const style = {
+  bar: {
+    borderBottom: '1px solid black',
+    backgroundColor: 'white'
+  }
+}
 
 const MenuIcon = connect()(({
   dispatch
@@ -56,7 +63,7 @@ const RightIcons = ({
 const Header = ({
   isAdmin = false,
 }) => (
-  <Toolbar>
+  <Toolbar style={style.bar}>
     <ToolbarGroup float="left" firstChild>
       <MenuIcon/>
     </ToolbarGroup>

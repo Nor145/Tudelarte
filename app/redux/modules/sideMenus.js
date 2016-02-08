@@ -30,7 +30,7 @@ export default (state = initialState, signal) => {
   }
 }
 
-export const reverseLeftMenu = () => ({
+export const reverseLeftMenu = () => ({ 
   type: REVERSE_LEFT_MENU
 })
 export const reverseCreateMenu = () => ({

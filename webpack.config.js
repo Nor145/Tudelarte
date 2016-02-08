@@ -8,9 +8,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pkg = require('./package.json');
 
 const TARGET = process.env.npm_lifecycle_event;
+var ROOT_PATH = path.resolve(__dirname);
 const PATHS = {
-  app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  app: path.resolve(ROOT_PATH, 'app'),
+  build: path.resolve(ROOT_PATH, 'build')
 };
 const ENV = {
   host: process.env.HOST || 'localhost',
@@ -26,7 +27,8 @@ const common = {
   },
   output: {
     path: PATHS.build,
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath:'/'
   },
   module: {
     loaders: [
@@ -39,9 +41,10 @@ const common = {
   },
   plugins: [
     new HtmlwebpackPlugin({
-      template: 'node_modules/html-webpack-template/index.html',
+      template: 'app/index.tpl.html',
       title: 'Tudelarte app',
-      appMountId: 'app'
+      inject: 'body',
+      filename: 'index.html'
     })
   ]
 };
