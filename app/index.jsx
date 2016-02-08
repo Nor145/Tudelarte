@@ -7,7 +7,7 @@ import './main.css'
 
 const store = configureStore()
 
-const app = document.createElement('div');
-document.body.appendChild(app);
+const app = document.createElement('div')
+document.body.appendChild(app)
 
 ReactDOM.render(<Root store={store} />, app)

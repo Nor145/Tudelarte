@@ -1,14 +1,14 @@
-const path = require('path');
-const HtmlwebpackPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const Clean = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path')
+const HtmlwebpackPlugin = require('html-webpack-plugin')
+const merge = require('webpack-merge')
+const webpack = require('webpack')
+const Clean = require('clean-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const pkg = require('./package.json');
+const pkg = require('./package.json')
 
-const TARGET = process.env.npm_lifecycle_event;
-var ROOT_PATH = path.resolve(__dirname);
+const TARGET = process.env.npm_lifecycle_event
+var ROOT_PATH = path.resolve(__dirname)
 const PATHS = {
   app: path.resolve(ROOT_PATH, 'app'),
   build: path.resolve(ROOT_PATH, 'build')
