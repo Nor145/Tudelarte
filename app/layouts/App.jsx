@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, {Component} from 'react'
+import {Link} from 'react-router'
 // my files
-import Header from '../components/Header';
+import Header from '../components/Header'
 // material-ui
-import RaisedButton from 'material-ui/lib/raised-button';
-import Colors from 'material-ui/lib/styles/colors';
-import IconButton from 'material-ui/lib/icon-button';
+import RaisedButton from 'material-ui/lib/raised-button'
+import Colors from 'material-ui/lib/styles/colors'
+import IconButton from 'material-ui/lib/icon-button'
 
 
 class App extends Component {
@@ -17,4 +17,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

@@ -22,9 +22,7 @@ import {
 const MenuIcon = connect()(({
   dispatch
 }) => (
-  <IconButton 
-    onClick={ () => dispatch(reverseLeftMenu())} 
-    touch>
+  <IconButton onClick={ () => dispatch(reverseLeftMenu())} touch>
     <ImageDehaze />
   </IconButton>
 ))
@@ -32,9 +30,7 @@ const MenuIcon = connect()(({
 const CreateIcon = connect()(({
   dispatch
 }) => (
-  <IconButton 
-    onClick={() => dispatch(reverseCreateMenu())} 
-    touch>
+  <IconButton onClick={() => dispatch(reverseCreateMenu())} touch>
     <ContentAdd />
   </IconButton>
 ))
@@ -43,15 +39,11 @@ const ClientIcons = connect()(({
   dispatch
 }) => (
   <div>
-    <IconButton 
-      onClick={() => dispatch(reverseFavouriteMenu())} 
-      touch>
+    <IconButton onClick={() => dispatch(reverseFavouriteMenu())} touch>
       <ActionFavorite/>
     </IconButton>
 
-    <IconButton 
-      onClick={() => dispatch(reverseCartMenu())} 
-      touch>
+    <IconButton onClick={() => dispatch(reverseCartMenu())} touch>
       <ActionShoppingCart/>
     </IconButton>
   </div>
@@ -79,4 +71,4 @@ Header.propTypes = {
   isAdmin: React.PropTypes.bool
 }
 
-export default Header;
+export default Header
