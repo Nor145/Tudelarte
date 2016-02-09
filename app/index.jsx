@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // files
-import Root from './root/root.jsx'
+import Root from './root/Root'
 import configureStore from './redux/store/configureStore'
 import './main.css'
 

@@ -26,23 +26,23 @@ const style = {
   }
 }
 
-const MenuIcon = connect()(({
+const MenuIcon = ({
   dispatch
 }) => (
   <IconButton onClick={ () => dispatch(reverseLeftMenu())} touch>
     <ImageDehaze />
   </IconButton>
-))
+)
 
-const CreateIcon = connect()(({
+const CreateIcon = ({
   dispatch
 }) => (
   <IconButton onClick={() => dispatch(reverseCreateMenu())} touch>
     <ContentAdd />
   </IconButton>
-))
+)
 
-const ClientIcons = connect()(({
+const ClientIcons = ({
   dispatch
 }) => (
   <div>
@@ -54,28 +54,35 @@ const ClientIcons = connect()(({
       <ActionShoppingCart/>
     </IconButton>
   </div>
-))
+)
 
 const RightIcons = ({
-  isAdmin
-}) => isAdmin ? <CreateIcon/> : <ClientIcons/>
-  
+  isAdmin,
+  dispatch
+}) => ( isAdmin ? 
+  <CreateIcon dispatch={dispatch}/> 
+  : 
+  <ClientIcons dispatch={dispatch}/>
+)
+
 const Header = ({
   isAdmin = false,
+  dispatch
 }) => (
   <Toolbar style={style.bar}>
     <ToolbarGroup float="left" firstChild>
-      <MenuIcon/>
+      <MenuIcon dispatch={dispatch}/>
     </ToolbarGroup>
     <ToolbarTitle text="TUDELARTE"/>
     <ToolbarGroup float="right" lastChild>
-      <RightIcons isAdmin={isAdmin}/>
+      <RightIcons dispatch={dispatch} isAdmin={isAdmin}/>
     </ToolbarGroup>
   </Toolbar>
 )
 
 Header.propTypes = {
-  isAdmin: React.PropTypes.bool
+  isAdmin: React.PropTypes.bool,
+  dispatch: React.PropTypes.func.required
 }
 
-export default Header
+export default connect()(Header)

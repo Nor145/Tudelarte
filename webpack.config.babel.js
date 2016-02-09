@@ -4,6 +4,7 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const Clean = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 const pkg = require('./package.json')
 
@@ -78,7 +79,10 @@ if(TARGET === 'start' || !TARGET) {
       ]
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new NpmInstallPlugin({
+        save: true // --save
+      })
     ]
   });
 }
