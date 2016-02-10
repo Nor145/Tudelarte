@@ -1,3 +1,4 @@
+/* @flow */
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
@@ -11,28 +12,23 @@ import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite'
 import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
 import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
-//actions
+// component
+import style from './style'
+// actions
 import {
   reverseLeftMenu, 
   reverseCreateMenu,
   reverseFavouriteMenu,
   reverseCartMenu
-} from '../redux/modules/sideMenus'
-
-const style = {
-  bar: {
-    borderBottom: '1px solid black',
-    backgroundColor: 'white'
-  }
-}
+} from '../../redux/modules/sideMenus'
 
 const MenuIcon = ({
   dispatch
-}) => (
-  <IconButton onClick={ () => dispatch(reverseLeftMenu())} touch>
+}) => ( 
+  <IconButton onClick={() => dispatch(reverseLeftMenu())} touch>
     <ImageDehaze />
   </IconButton>
-)
+) 
 
 const CreateIcon = ({
   dispatch
@@ -65,9 +61,11 @@ const RightIcons = ({
   <ClientIcons dispatch={dispatch}/>
 )
 
-const Header = ({
-  isAdmin = false,
-  dispatch
+
+
+const Header = ({isAdmin , dispatch}: {
+  isAdmin: boolean;
+  dispatch: Function
 }) => (
   <Toolbar style={style.bar}>
     <ToolbarGroup float="left" firstChild>
@@ -80,9 +78,8 @@ const Header = ({
   </Toolbar>
 )
 
-Header.propTypes = {
-  isAdmin: React.PropTypes.bool,
-  dispatch: React.PropTypes.func.required
+Header.defaultProps = {
+  isAdmin: false
 }
 
 export default connect()(Header)

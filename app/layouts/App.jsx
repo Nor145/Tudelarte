@@ -1,7 +1,8 @@
+/* @flow */
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 // my files
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 // material-ui
 import RaisedButton from 'material-ui/lib/raised-button'
 import Colors from 'material-ui/lib/styles/colors'
@@ -12,7 +13,9 @@ class App extends Component {
   render() {
     console.log('from App', this.props)
     return (
-      <Header />
+      <div>
+        <Header/>
+      </div>
     )
   }
 }

@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react'
 import ReactDOM from 'react-dom'
 // files
@@ -11,3 +12,7 @@ const app = document.createElement('div')
 document.body.appendChild(app)
 
 ReactDOM.render(<Root store={store} />, app)
+
+
+// import test from './testflow'
+// test('hola0')

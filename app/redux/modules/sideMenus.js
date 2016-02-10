@@ -1,22 +1,41 @@
+/* @flow */
+
 const REVERSE_LEFT_MENU = 'REVERSE_LEFT_MENU'
 const REVERSE_CREATE_MENU = 'REVERSE_CREATE_MENU'
 const REVERSE_FAVOURITE_MENU = 'REVERSE_FAVOURITE_MENU'
 const REVERSE_CART_MENU = 'REVERSE_CART_MENU'
 
-const initialState = {
+type StateType = {
+  left: boolean,
+  create: boolean,
+  favourites: boolean,
+  cart: boolean
+};
+
+type ActionType = {
+  type: string
+};
+
+const initialState: StateType = {
   left: false,
   create: false,
   favourites: false,
   cart: false
 }
 
-const reverseClickedMenu = (state, target) => ({
+const reverseClickedMenu = (
+  state: StateType, 
+  target: string
+):StateType => ({
   ...state,
   [target]: !state[target] 
 })
 
-export default (state = initialState, signal) => {
-  switch (signal.type) {
+export default (
+  state: Object = initialState, 
+  action: ActionType
+):StateType => {
+  switch (action.type) {
     case REVERSE_LEFT_MENU:
       return reverseClickedMenu(state, 'left')
     case REVERSE_CREATE_MENU:
@@ -30,15 +49,15 @@ export default (state = initialState, signal) => {
   }
 }
 
-export const reverseLeftMenu = () => ({ 
+export const reverseLeftMenu = ():ActionType => ({ 
   type: REVERSE_LEFT_MENU
 })
-export const reverseCreateMenu = () => ({
+export const reverseCreateMenu = ():ActionType => ({
   type: REVERSE_CREATE_MENU
 })
-export const reverseFavouriteMenu = () => ({
+export const reverseFavouriteMenu = ():ActionType => ({
   type: REVERSE_FAVOURITE_MENU
 })
-export const reverseCartMenu = () => ({
+export const reverseCartMenu = ():ActionType => ({
   type: REVERSE_CART_MENU
 })

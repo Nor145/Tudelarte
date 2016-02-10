@@ -10,5 +10,9 @@
         "react-hmre"
       ]
     }
-  }
+  },
+  "plugins": [
+    "syntax-flow",
+    "typecheck"
+  ]
 }

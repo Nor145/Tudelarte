@@ -1,3 +1,5 @@
+/* @flow */
+
 import {createStore, compose} from 'redux'
 import {persistState} from 'redux-devtools'
 // files
@@ -18,7 +20,7 @@ const createStoreWithMiddleware = compose(
   window.devToolsExtension ? f => f : persistState(getDebugSessionKey())
 )(createStore)
 
-export default initialState => {
+export default (initialState: Object|void):Object => {
   const store = createStoreWithMiddleware(reducer, initialState)
 
   if(module.hot) {
