@@ -1,6 +1,8 @@
 [ignore]
 .*/node_modules
 .*/node_modules/react\(-dom\)?
+.*/node_modules/redux/.* <-- don't try to infer from redux sources
+.*/node_modules/react/.* <-- don't try to infer from react sources
 [include]
 ./app
 [libs]

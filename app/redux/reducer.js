@@ -1,3 +1,4 @@
+/* @flow */
 import {combineReducers} from 'redux'
 // files
 import sideMenus from './modules/sideMenus'

@@ -1,5 +1,4 @@
 /* @flow */
-
 import {createStore, compose} from 'redux'
 import {persistState} from 'redux-devtools'
 // files
@@ -15,7 +14,11 @@ const getDebugSessionKey = () => {
   return (matches && matches.length > 0) ? matches[1] : null
 }
 
-const createStoreWithMiddleware = compose(
+//flow doesn't get it
+const createStoreWithMiddleware: ((
+  reducer: Function,
+  initialState: Object
+) => Object) = compose(
   window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
   window.devToolsExtension ? f => f : persistState(getDebugSessionKey())
 )(createStore)
