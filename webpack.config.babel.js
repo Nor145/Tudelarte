@@ -4,12 +4,14 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const Clean = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const NpmInstallPlugin = require('npm-install-webpack-plugin');
+const NpmInstallPlugin = require('npm-install-webpack-plugin')
+var stylelint = require('stylelint');
+var configSuitcss = require('stylelint-config-suitcss');
 
 const pkg = require('./package.json')
 
 const TARGET = process.env.npm_lifecycle_event
-var ROOT_PATH = path.resolve(__dirname)
+const ROOT_PATH = path.resolve(__dirname)
 const PATHS = {
   app: path.resolve(ROOT_PATH, 'app'),
   build: path.resolve(ROOT_PATH, 'build')
@@ -32,6 +34,19 @@ const common = {
     publicPath:'/'
   },
   module: {
+    // It's giving errors when used with flow
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['eslint'],
+        include: PATHS.app
+      },
+      {
+        test: /\.css$/,
+        loaders: ['postcss'],
+        include: PATHS.app
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -39,6 +54,14 @@ const common = {
         include: PATHS.app
       }
     ]
+  },
+  postcss: function () { 
+    return [stylelint({
+      "extends": "stylelint-config-suitcss",
+      "rules": {
+        "indentation": "tab",
+        "number-leading-zero": null
+    } })];
   },
   plugins: [
     new HtmlwebpackPlugin({

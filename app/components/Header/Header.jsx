@@ -1,6 +1,5 @@
 /* @flow */
-import React, {Component} from 'react'
-import {Link} from 'react-router'
+import React from 'react'
 import {connect} from 'react-redux'
 // material-ui
 import Toolbar from 'material-ui/lib/toolbar/toolbar'
@@ -10,13 +9,13 @@ import ContentAdd from 'material-ui/lib/svg-icons/content/add'
 import ActionShoppingCart from 'material-ui/lib/svg-icons/action/shopping-cart'
 import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite'
 import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
-import Colors from 'material-ui/lib/styles/colors'
+// import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
 // component
 import style from './style'
 // actions
 import {
-  reverseLeftMenu, 
+  reverseLeftMenu,
   reverseCreateMenu,
   reverseFavouriteMenu,
   reverseCartMenu
@@ -24,11 +23,11 @@ import {
 
 const MenuIcon = ({
   dispatch
-}) => ( 
+}) => (
   <IconButton onClick={() => dispatch(reverseLeftMenu())} touch>
     <ImageDehaze />
   </IconButton>
-) 
+)
 
 const CreateIcon = ({
   dispatch
@@ -55,17 +54,15 @@ const ClientIcons = ({
 const RightIcons = ({
   isAdmin,
   dispatch
-}) => ( isAdmin ? 
-  <CreateIcon dispatch={dispatch}/> 
-  : 
+}) => ( isAdmin ?
+  <CreateIcon dispatch={dispatch}/>
+  :
   <ClientIcons dispatch={dispatch}/>
 )
 
-
-
-const Header = ({isAdmin , dispatch}: {
-  isAdmin: boolean;
-  dispatch: Function
+const Header = ({
+  isAdmin,
+  dispatch
 }) => (
   <Toolbar style={style.bar}>
     <ToolbarGroup float="left" firstChild>
@@ -78,6 +75,10 @@ const Header = ({isAdmin , dispatch}: {
   </Toolbar>
 )
 
+Header.propTypes = {
+  isAdmin: React.PropTypes.bool,
+  dispatch: React.PropTypes.func
+}
 Header.defaultProps = {
   isAdmin: false
 }

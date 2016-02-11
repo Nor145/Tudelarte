@@ -1,4 +1,5 @@
 /* @flow */
+import {LEFT, CREATE, FAVOURITES, CART} from '../../tools/CONSTANTS'
 
 const REVERSE_LEFT_MENU = 'REVERSE_LEFT_MENU'
 const REVERSE_CREATE_MENU = 'REVERSE_CREATE_MENU'
@@ -24,32 +25,32 @@ const initialState: StateType = {
 }
 
 const reverseClickedMenu = (
-  state: StateType, 
+  state: StateType,
   target: string
 ):StateType => ({
   ...state,
-  [target]: !state[target] 
+  [target]: !state[target]
 })
 
 export default (
-  state: Object = initialState, 
+  state: StateType = initialState,
   action: ActionType
 ):StateType => {
   switch (action.type) {
     case REVERSE_LEFT_MENU:
-      return reverseClickedMenu(state, 'left')
+      return reverseClickedMenu(state, LEFT)
     case REVERSE_CREATE_MENU:
-      return reverseClickedMenu(state, 'create')
+      return reverseClickedMenu(state, CREATE)
     case REVERSE_FAVOURITE_MENU:
-      return reverseClickedMenu(state, 'favourites')
+      return reverseClickedMenu(state, FAVOURITES)
     case REVERSE_CART_MENU:
-      return reverseClickedMenu(state, 'cart')
+      return reverseClickedMenu(state, CART)
     default:
       return state
   }
 }
 
-export const reverseLeftMenu = ():ActionType => ({ 
+export const reverseLeftMenu = ():ActionType => ({
   type: REVERSE_LEFT_MENU
 })
 export const reverseCreateMenu = ():ActionType => ({
