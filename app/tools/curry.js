@@ -1,2 +1,1 @@
-
-export default (func, ...first) => (...second) => func(...first, ...second)
+export const curry = (func, ...first) => (...second) => func(...first, ...second)

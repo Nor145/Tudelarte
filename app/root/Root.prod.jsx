@@ -1,7 +1,7 @@
 import React from 'react'
 import {Provider} from 'react-redux'
 // files
-import App from '../layouts/App.jsx'
+import App from 'components/layouts/App.jsx'
 
 export default ({
   store

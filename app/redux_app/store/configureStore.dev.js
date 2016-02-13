@@ -3,7 +3,7 @@ import {createStore, compose} from 'redux'
 import {persistState} from 'redux-devtools'
 // files
 import reducer from '../reducer'
-import DevTools from '../../root/DevTools'
+import DevTools from 'root/DevTools'
 
 // To persist debug sessions across page reloads just add to the
 // ?debug_session=<session_name>

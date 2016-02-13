@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react'
 import {connect} from 'react-redux'
+import {css} from 'aphrodite';
 // material-ui
 import Toolbar from 'material-ui/lib/toolbar/toolbar'
 import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group'
@@ -12,14 +13,14 @@ import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
 // import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
 // component
-import style from './style'
+import {className} from './style'
 // actions
 import {
   reverseLeftMenu,
   reverseCreateMenu,
   reverseFavouriteMenu,
   reverseCartMenu
-} from '../../redux/modules/sideMenus'
+} from 'redux_app/modules/sideMenus'
 
 const MenuIcon = ({
   dispatch
@@ -64,7 +65,7 @@ const Header = ({
   isAdmin,
   dispatch
 }) => (
-  <Toolbar style={style.bar}>
+  <Toolbar className={css(className.bar)}>
     <ToolbarGroup float="left" firstChild>
       <MenuIcon dispatch={dispatch}/>
     </ToolbarGroup>

@@ -1,13 +1,16 @@
 /* @flow */
 import React, {Component} from 'react'
 // my files
-import Header from '../components/Header/Header'
+import Header from 'components/components/Header/Header'
 // material-ui
 
 
 class App extends Component {
+	// static propTypes = {
+	// 	value: React.PropTypes.string
+	// };
+
   render() {
-    console.log('From App, Props: ', this.props)
     return (
       <div>
         <Header/>
