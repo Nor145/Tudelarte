@@ -1,12 +1,11 @@
+/* @flow */
+'use strict';
+
 import {StyleSheet} from 'aphrodite';
 
-export const className = StyleSheet.create({
+export default StyleSheet.create({
   bar: {
     borderBottom: '1px solid black',
     backgroundColor: 'white'
   }
 })
-
-export const styles = {
-
-}

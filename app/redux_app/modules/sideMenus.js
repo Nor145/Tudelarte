@@ -1,5 +1,7 @@
+'use strict'
 /* @flow */
-import {LEFT, CREATE, FAVOURITES, CART} from 'tools/CONSTANTS'
+
+import {LEFT, CREATE, FAVOURITES, CART} from 'tools/consts.js'
 
 const REVERSE_LEFT_MENU = 'REVERSE_LEFT_MENU'
 const REVERSE_CREATE_MENU = 'REVERSE_CREATE_MENU'

@@ -6,7 +6,7 @@
     "node": true,
     "mocha": true
   },
-  "plugins": [ 
+  "plugins": [
   	"react",
   	"flow-vars"
 	],
@@ -30,13 +30,13 @@
   },
   "rules": {
   	"new-cap": 1,
-		"strict": 0, 
+		"strict": 0,
 
 		/**
      * Variables
      */
     "no-var": 2,
-  	"prefer-const": 2,
+  	"prefer-const": 1,
   	"no-shadow": 2,
   	"no-shadow-restricted-names": 2,
   	"no-use-before-define": 2,
@@ -87,13 +87,13 @@
     /**
      * Style
      */
-    "indent": [2, 2],                // http://eslint.org/docs/rules/indent
     "brace-style": [
       2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
         "allowSingleLine": true
       }
     ],
+    "no-mixed-spaces-and-tabs": 0,
     "quotes": [
       2, "single", "avoid-escape"    // http://eslint.org/docs/rules/quotes
     ],

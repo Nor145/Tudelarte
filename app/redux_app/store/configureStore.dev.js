@@ -1,23 +1,16 @@
 /* @flow */
-import {createStore, compose} from 'redux'
-import {persistState} from 'redux-devtools'
+'use strict'
+
+import {createStore, compose, applyMiddleware} from 'redux'
 // files
 import reducer from '../reducer'
-import DevTools from 'root/DevTools'
+import reduxRouterMiddleware from '../middlewares/reduxRouterMiddleware'
 
-// To persist debug sessions across page reloads just add to the
-// ?debug_session=<session_name>
+const middlewares = applyMiddleware(reduxRouterMiddleware)
 
-const getDebugSessionKey = () => {
-  const matches = window.location.href.match(/[?&]debug_session=([^&]+)\b/)
-
-  return (matches && matches.length > 0) ? matches[1] : null
-}
-
-// flow doesn't work here
 const createStoreWithMiddleware = compose(
-  window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
-  window.devToolsExtension ? f => f : persistState(getDebugSessionKey())
+	middlewares,
+  window.devToolsExtension()
 )(createStore)
 
 export default (initialState: Object|void):Object => {

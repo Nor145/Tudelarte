@@ -43,6 +43,7 @@
     "redux-devtools": "^3.0.1",
     "redux-devtools-dock-monitor": "^1.0.1",
     "redux-devtools-log-monitor": "^1.0.2",
+    "scroll-behavior": "^0.3.2",
     "style-loader": "^0.13.0",
     "stylelint": "^4.2.0",
     "stylelint-config-suitcss": "^3.0.0",
@@ -62,10 +63,13 @@
     "react-dnd-html5-backend": "^2.0.2",
     "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",
-    "react-router": "^1.0.3",
+    "react-router": "^2.0.0",
+    "react-router-redux": "^3.0.0",
     "react-tap-event-plugin": "^0.2.2",
-    "redux": "^3.0.5",
+    "redux": "^3.3.1",
     "root": "^3.0.0",
+    "routes": "^2.1.0",
+    "scroll-behavior": "^0.3.2",
     "tools": "0.0.0"
   }
 }

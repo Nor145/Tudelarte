@@ -1,4 +1,6 @@
 /* @flow */
+'use strict'
+
 import React from 'react'
 import {connect} from 'react-redux'
 import {css} from 'aphrodite';
@@ -13,7 +15,7 @@ import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
 // import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
 // component
-import {className} from './style'
+import className from './className'
 // actions
 import {
   reverseLeftMenu,
@@ -65,16 +67,17 @@ const Header = ({
   isAdmin,
   dispatch
 }) => (
-  <Toolbar className={css(className.bar)}>
-    <ToolbarGroup float="left" firstChild>
-      <MenuIcon dispatch={dispatch}/>
-    </ToolbarGroup>
-    <ToolbarTitle text="TUDELARTE"/>
-    <ToolbarGroup float="right" lastChild>
-      <RightIcons dispatch={dispatch} isAdmin={isAdmin}/>
-    </ToolbarGroup>
-  </Toolbar>
+	<Toolbar className={css(className.bar)}>
+		<ToolbarGroup float="left" firstChild>
+			<MenuIcon dispatch={dispatch}/>
+		</ToolbarGroup>
+	  <ToolbarTitle text="TUDELARTE"/>
+	  <ToolbarGroup float="right" lastChild>
+	    <RightIcons dispatch={dispatch} isAdmin={isAdmin}/>
+	  </ToolbarGroup>
+	</Toolbar>
 )
+
 
 Header.propTypes = {
   isAdmin: React.PropTypes.bool,
