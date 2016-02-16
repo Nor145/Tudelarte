@@ -3,7 +3,7 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
-import {css} from 'aphrodite';
+import {css} from 'aphrodite'
 // material-ui
 import Toolbar from 'material-ui/lib/toolbar/toolbar'
 import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group'
@@ -18,19 +18,11 @@ import IconButton from 'material-ui/lib/icon-button'
 import className from './className'
 // actions
 import {
-  reverseLeftMenu,
+  reverseMainMenu,
   reverseCreateMenu,
-  reverseFavouriteMenu,
+  reverseFavouritesMenu,
   reverseCartMenu
 } from 'redux_app/modules/sideMenus'
-
-const MenuIcon = ({
-  dispatch
-}) => (
-  <IconButton onClick={() => dispatch(reverseLeftMenu())} touch>
-    <ImageDehaze />
-  </IconButton>
-)
 
 const CreateIcon = ({
   dispatch
@@ -40,11 +32,11 @@ const CreateIcon = ({
   </IconButton>
 )
 
-const ClientIcons = ({
+const CustomerIcons = ({
   dispatch
 }) => (
   <div>
-    <IconButton onClick={() => dispatch(reverseFavouriteMenu())} touch>
+    <IconButton onClick={() => dispatch(reverseFavouritesMenu())} touch>
       <ActionFavorite/>
     </IconButton>
 
@@ -54,37 +46,44 @@ const ClientIcons = ({
   </div>
 )
 
-const RightIcons = ({
-  isAdmin,
+const RightSideIcons = ({
+	isAdminPage,
   dispatch
-}) => ( isAdmin ?
-  <CreateIcon dispatch={dispatch}/>
-  :
-  <ClientIcons dispatch={dispatch}/>
+}) => ( isAdminPage
+	? <CreateIcon dispatch={dispatch}/>
+  : <CustomerIcons dispatch={dispatch}/>
+)
+
+const MenuIcon = ({
+  dispatch
+}) => (
+  <IconButton onClick={() => dispatch(reverseMainMenu())} touch>
+    <ImageDehaze />
+  </IconButton>
 )
 
 const Header = ({
-  isAdmin,
-  dispatch
+	isAdminPage = false,
+	dispatch
 }) => (
 	<Toolbar className={css(className.bar)}>
 		<ToolbarGroup float="left" firstChild>
 			<MenuIcon dispatch={dispatch}/>
 		</ToolbarGroup>
-	  <ToolbarTitle text="TUDELARTE"/>
+	  <ToolbarTitle className={css(className.title)} text="TUDELARTE"/>
 	  <ToolbarGroup float="right" lastChild>
-	    <RightIcons dispatch={dispatch} isAdmin={isAdmin}/>
+	    <RightSideIcons isAdminPage={isAdminPage} dispatch={dispatch}/>
 	  </ToolbarGroup>
 	</Toolbar>
 )
 
-
-Header.propTypes = {
-  isAdmin: React.PropTypes.bool,
-  dispatch: React.PropTypes.func
+Header.PropTypes = {
+	isAdminPage: React.PropTypes.bool,
+	dispatch: React.PropTypes.func
 }
-Header.defaultProps = {
-  isAdmin: false
+
+Header.PropTypes = {
+	isAdminPge: false
 }
 
 export default connect()(Header)

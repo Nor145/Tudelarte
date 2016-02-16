@@ -10,7 +10,7 @@ import App from 'components/layouts/App'
 
 export default (
 	<Route path="/" component={ App }>
-		<IndexRoute component={ Home } />
-		<Route path="*" component={ NotFound } />
+		<IndexRoute component={ Home }/>
+		<Route path="*" component={ NotFound }/>
 	</Route>
 );

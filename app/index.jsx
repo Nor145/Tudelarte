@@ -7,12 +7,15 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router'
 import { browserHistory } from 'react-router';
 import useScroll from 'scroll-behavior/lib/useScrollToTop';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 // files
 import reduxRouterMiddleware from 'redux_app/middlewares/reduxRouterMiddleware'
 import configureStore from 'redux_app/store/configureStore'
 import Routes from 'routes'
 
 import './main.css'
+
+injectTapEventPlugin()
 
 const main = () => {
 	const store = configureStore()
