@@ -12,7 +12,7 @@ import ContentAdd from 'material-ui/lib/svg-icons/content/add'
 import ActionShoppingCart from 'material-ui/lib/svg-icons/action/shopping-cart'
 import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite'
 import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
-// import Colors from 'material-ui/lib/styles/colors'
+import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
 // component
 import className from './className'
@@ -27,25 +27,32 @@ import {
 const CreateIcon = ({
   dispatch
 }) => (
-  <IconButton onClick={() => dispatch(reverseCreateMenu())} touch>
+  <IconButton onMouseEnteronClick={() => dispatch(reverseCreateMenu())} touch>
     <ContentAdd />
   </IconButton>
 )
 
 const CustomerIcons = ({
   dispatch
-}) => (
-  <div>
-    <IconButton onClick={() => dispatch(reverseFavouritesMenu())} touch>
-      <ActionFavorite/>
-    </IconButton>
+}) => {
+	let favoriteColor = Colors.redA100
 
-    <IconButton onClick={() => dispatch(reverseCartMenu())} touch>
-      <ActionShoppingCart/>
-    </IconButton>
-  </div>
-)
+	return (
+	  <div>
+	    <IconButton
+	    onMouseLeave={() => favoriteColor = Colors.redA700}
+	  	onMouseEnter={() => favoriteColor = Colors.redA100}
+	  	onClick={() => dispatch(reverseFavouritesMenu())}
+	  	touch>
+	      <ActionFavorite color={favoriteColor}/>
+	    </IconButton>
 
+	    <IconButton onClick={() => dispatch(reverseCartMenu())} touch>
+	      <ActionShoppingCart/>
+	    </IconButton>
+	  </div>
+	)
+}
 const RightSideIcons = ({
 	isAdminPage,
   dispatch

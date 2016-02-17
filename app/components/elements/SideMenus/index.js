@@ -79,7 +79,7 @@ const CreateMenu = connectToCreateMenu(({
 	docked={false}
 	open={isCreateMenuOpen}
 	onRequestChange={reverseCreateMenu}>
-		CREAR
+		<div>CREAR</div>
 		<div>
 			<MenuItem onTouchTap={onCreateGalleryTouched}>GALERIA</MenuItem>
 			<MenuItem onTouchTap={onCreateRastrilloTouched}>RASTRILLO</MenuItem>
@@ -111,7 +111,7 @@ const AdminMenu = connectToAdminMenu(({
 	docked={false}
 	open={isMainMenuOpen}
 	onRequestChange={reverseMainMenu}>
-		MENU
+		<div>MENU</div>
 		<div>
 			<MenuItem onTouchTap={onHomeAdminTouched}>GENERAL</MenuItem>
 			<MenuItem onTouchTap={onGalleryAdminTouched}>GALERIA</MenuItem>
@@ -150,7 +150,7 @@ const SiteMenuItems = ({
 
 	return (
 		<div>
-			MENU
+			<div>MENU</div>
 			<div>
 				<MenuItem onTouchTap={onServicesTouched}>SERVICES</MenuItem>
 			</div>
@@ -194,15 +194,12 @@ const MainMenu = ({
 
 const SideMenus = ({
 	isAdminPage
-}) => {
-	console.log(connectToFavouritesMenu)
-	return (
-		<div>
-			<MainMenu isAdminPage={isAdminPage}/>
-			<RightSideMenus isAdminPage={isAdminPage}/>
-		</div>
-	)
-}
+}) => (
+	<div>
+		<MainMenu isAdminPage={isAdminPage}/>
+		<RightSideMenus isAdminPage={isAdminPage}/>
+	</div>
+)
 
 SideMenus.propTypes = {
   isAdminPage: React.PropTypes.bool
