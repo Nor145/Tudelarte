@@ -7,6 +7,6 @@ const initialState = {
 
 export default (
 	state = initialState,
-	action
+	action // eslint-disable-line no-unused-vars
 ) => state
 

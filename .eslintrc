@@ -60,7 +60,7 @@
     "dot-notation": [2, {            // http://eslint.org/docs/rules/dot-notation
       "allowKeywords": true
     }],
-    "no-else-return": 2,             // http://eslint.org/docs/rules/no-else-return
+    "no-else-return": 0,             // http://eslint.org/docs/rules/no-else-return
     "no-eq-null": 2,                 // http://eslint.org/docs/rules/no-eq-null
     "no-eval": 2,                    // http://eslint.org/docs/rules/no-eval
     "no-extend-native": 2,           // http://eslint.org/docs/rules/no-extend-native

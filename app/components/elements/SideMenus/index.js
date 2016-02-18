@@ -14,7 +14,7 @@ import {
 	connectToCreateMenu,
 	connectToFavouritesMenu,
 	connectToCartMenu
-} from './connectComponents'
+} from './connect'
 
 const CartMenu = connectToCartMenu(({
 	reverseCartMenu,

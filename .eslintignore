@@ -1,4 +1,3 @@
 build/
 node_modules/
-app/redux_app/modules
 webpack.config.babel.js

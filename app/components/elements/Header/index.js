@@ -14,45 +14,55 @@ import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite'
 import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
 import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
+// actions
+import { toggle } from 'redux_app/modules/ui/toggle'
 // component
 import className from './className'
-// actions
+import { connectToCustomerIcons } from './connect.js'
+// consts
 import {
-  reverseMainMenu,
-  reverseCreateMenu,
-  reverseFavouritesMenu,
-  reverseCartMenu
-} from 'redux_app/modules/sideMenus'
+	MAIN_MENU,
+	CREATE_MENU,
+	FAVOURITES_MENU,
+	CART_MENU,
+	FAVORITE_COLOR
+} from 'tools/constants/stateKeys'
 
 const CreateIcon = ({
   dispatch
 }) => (
-  <IconButton onMouseEnteronClick={() => dispatch(reverseCreateMenu())} touch>
+  <IconButton
+  onClick={() => dispatch(toggle(CREATE_MENU))} touch>
     <ContentAdd />
   </IconButton>
 )
 
-const CustomerIcons = ({
-  dispatch
-}) => {
-	let favoriteColor = Colors.redA100
+const CustomerIcons = connectToCustomerIcons(({
+  dispatch,
+  favoriteColor
+}) => (
+  <div>
+    <IconButton
+    onMouseLeave={() => dispatch(toggle(FAVORITE_COLOR, Colors.redA100))}
+  	onMouseEnter={() => dispatch(toggle(FAVORITE_COLOR, Colors.redA700))}
+  	onClick={() => dispatch(toggle(FAVOURITES_MENU))}
+  	touch>
+      <ActionFavorite color={favoriteColor}/>
+    </IconButton>
 
-	return (
-	  <div>
-	    <IconButton
-	    onMouseLeave={() => favoriteColor = Colors.redA700}
-	  	onMouseEnter={() => favoriteColor = Colors.redA100}
-	  	onClick={() => dispatch(reverseFavouritesMenu())}
-	  	touch>
-	      <ActionFavorite color={favoriteColor}/>
-	    </IconButton>
+    <IconButton onClick={() => dispatch(toggle(CART_MENU))} touch>
+      <ActionShoppingCart/>
+    </IconButton>
+  </div>
+))
 
-	    <IconButton onClick={() => dispatch(reverseCartMenu())} touch>
-	      <ActionShoppingCart/>
-	    </IconButton>
-	  </div>
-	)
+CustomerIcons.propTypes = {
+	favoriteColor: React.PropTypes.string
 }
+CustomerIcons.defaultProps = {
+	favoriteColor: Colors.redA100
+}
+
 const RightSideIcons = ({
 	isAdminPage,
   dispatch
@@ -64,7 +74,7 @@ const RightSideIcons = ({
 const MenuIcon = ({
   dispatch
 }) => (
-  <IconButton onClick={() => dispatch(reverseMainMenu())} touch>
+  <IconButton onClick={() => dispatch(toggle(MAIN_MENU))} touch>
     <ImageDehaze />
   </IconButton>
 )
@@ -84,12 +94,11 @@ const Header = ({
 	</Toolbar>
 )
 
-Header.PropTypes = {
+Header.propTypes = {
 	isAdminPage: React.PropTypes.bool,
 	dispatch: React.PropTypes.func
 }
-
-Header.PropTypes = {
+Header.defaultProps = {
 	isAdminPge: false
 }
 
