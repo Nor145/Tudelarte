@@ -67,6 +67,7 @@
     "react-router-redux": "^3.0.0",
     "react-tap-event-plugin": "^0.2.2",
     "redux": "^3.3.1",
+    "redux-form": "^4.2.0",
     "root": "^3.0.0",
     "routes": "^2.1.0",
     "scroll-behavior": "^0.3.2",

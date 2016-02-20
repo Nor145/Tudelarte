@@ -4,7 +4,7 @@
 import React, {Component} from 'react'
 import {css} from 'aphrodite';
 // my files
-import className from './className'
+import { className } from './style'
 // material-ui
 
 class Home extends Component {

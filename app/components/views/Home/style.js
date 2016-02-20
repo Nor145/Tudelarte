@@ -3,7 +3,7 @@
 
 import {StyleSheet} from 'aphrodite';
 
-export default StyleSheet.create({
+export const className = StyleSheet.create({
 	wrapper: {
 		display: 'flex',
 		width: '100%',

@@ -34,7 +34,7 @@ const reverseMenu = (dispatch, menu) => (
 const CartMenu = {
 	mapStateToProps: (state) => ({
 		isCartMenuOpen: state.ui.toggle.sideMenuOpen.cart,
-		isLoggedIn: state.user.isLogged
+		isLoggedIn: state.user.logged
 	}),
 	mapDispatchToProps: (dispatch) => ({
 		reverseCartMenu: reverseMenu(dispatch, CART_MENU),
@@ -45,7 +45,7 @@ const CartMenu = {
 const FavouritesMenu = {
 	mapStateToProps: (state) => ({
 		isFavouritesMenuOpen: state.ui.toggle.sideMenuOpen.favourites,
-		isLoggedIn: state.user.isLogged
+		isLoggedIn: state.user.logged
 	}),
 	mapDispatchToProps: (dispatch) => ({
 		reverseFavouritesMenu: reverseMenu(dispatch, FAVOURITES_MENU),
@@ -70,7 +70,7 @@ const SiteMenu = {
 	mapStateToProps: (state) => ({
 		isMainMenuOpen: state.ui.toggle.sideMenuOpen.main,
 		isAdministrator: state.user !== undefined && state.user.role === ADMINISTRATOR,
-		isLoggedIn: state.user.isLogged
+		isLoggedIn: state.user.logged
 	}),
 	mapDispatchToProps: (dispatch) => ({
 		reverseMainMenu: reverseMenu(dispatch, MAIN_MENU),

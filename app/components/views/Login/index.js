@@ -2,6 +2,6 @@
 'use strict'
 
 import {connect} from 'react-redux'
-import Header from './Header'
+import Login from './Login'
 
-export default connect()(Header)
+export default connect()(Login)

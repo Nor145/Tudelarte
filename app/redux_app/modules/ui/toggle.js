@@ -21,15 +21,15 @@ const getValue = (object, keys) => keys.reduce((obj, key) => obj[key], object)
 const toggleKey = (state, keys, value) => {
 	let objKey = {}  // eslint-disable-line prefer-const
   keys.reduce((obj, key, i) => {
-  	if (!isLast(keys, i)) {
-    	obj[key] = i === 0
-      	? {...state[key]}
-      	: getValue(objKey, [...Object.keys(objKey), key])
-      return obj[key]
-    } else {
+  	if (isLast(keys, i)) {
     	obj[key] = value === undefined
       	? !getValue(state, keys)
         : value
+    } else {
+      obj[key] = i === 0
+      	? {...state[key]}
+      	: getValue(objKey, [...Object.keys(objKey), key])
+      return obj[key]
     }
   }, objKey)
 
