@@ -3,9 +3,9 @@
 
 import React, {Component} from 'react'
 import {css} from 'aphrodite';
-// my files
+
 import { className } from './style'
-// material-ui
+
 
 class Home extends Component {
 	static propTypes = {

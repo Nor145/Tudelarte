@@ -3,11 +3,10 @@
 
 import React from 'react'
 import {css} from 'aphrodite'
-// material-ui
+
 import LeftNav from 'material-ui/lib/left-nav';
-// import Menu from 'material-ui/lib/menus/menu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
-// component
+
 import { className } from './style'
 import {
 	connectToAdminMenu,
@@ -161,7 +160,9 @@ const SiteMenuItems = ({
 			</MenuItem>
 		: <MenuItem
 			className={css(className.menuItem)}
-			onTouchTap={onLogoutTouched}>SALIR</MenuItem>
+			onTouchTap={onLogoutTouched}>
+				SALIR
+			</MenuItem>
 
 	return (
 		<div className={css(className.menuContainer)}>

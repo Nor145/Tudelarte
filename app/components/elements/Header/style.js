@@ -13,7 +13,7 @@ export const className = StyleSheet.create({
   title: {
   	position: 'absolute',
   	left: 'calc(50% - 87px)',
-  	fontSize: '2em',
+  	fontSize: '1.8em',
   	cursor: 'pointer'
   }
   // favoriteColor: {

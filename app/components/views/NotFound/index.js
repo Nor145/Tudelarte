@@ -2,14 +2,11 @@
 'use strict'
 
 import React, {Component} from 'react'
-// my files
-// material-ui
-
 
 class NotFound extends Component {
-	// static propTypes = {
-	// 	value: React.PropTypes.string
-	// };
+	static propTypes = {
+
+	};
 
 	render() {
 		return (

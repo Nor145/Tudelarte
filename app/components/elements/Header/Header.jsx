@@ -4,7 +4,7 @@
 import React from 'react'
 import { routeActions } from 'react-router-redux'
 import {css} from 'aphrodite'
-// material-ui
+
 import Toolbar from 'material-ui/lib/toolbar/toolbar'
 import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group'
 import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title'
@@ -14,12 +14,10 @@ import ActionFavorite from 'material-ui/lib/svg-icons/action/favorite'
 import ImageDehaze from 'material-ui/lib/svg-icons/image/dehaze'
 import Colors from 'material-ui/lib/styles/colors'
 import IconButton from 'material-ui/lib/icon-button'
-// actions
-import { toggle } from 'redux_app/modules/ui/toggle'
-// component
+
 import { className } from './style'
 import { connectToCustomerIcons } from './connect.js'
-// consts
+
 import { HOME } from 'tools/constants/routes'
 import {
 	MAIN_MENU,
@@ -28,6 +26,9 @@ import {
 	CART_MENU,
 	FAVORITE_COLOR
 } from 'tools/constants/stateKeys'
+
+// actions
+import { toggle } from 'redux_app/modules/ui/toggle'
 
 
 const CreateIcon = ({
@@ -88,9 +89,9 @@ const Header = ({
 			<MenuIcon dispatch={dispatch}/>
 		</ToolbarGroup>
 	  <ToolbarTitle
+	  text="TUDELARTE"
 	  onClick={() => dispatch(routeActions.push(HOME))}
-	  className={css(className.title)}
-	  text="TUDELARTE"/>
+	  className={css(className.title)}/>
 	  <ToolbarGroup float="right" lastChild>
 	    <RightSideIcons isAdminPage={isAdminPage} dispatch={dispatch}/>
 	  </ToolbarGroup>
