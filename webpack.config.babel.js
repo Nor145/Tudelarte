@@ -31,7 +31,8 @@ const common = {
     	'redux_app': path.join(PATHS.app, 'redux_app'),
     	'components': path.join(PATHS.app, 'components'),
     	'routes': path.join(PATHS.app, 'routes'),
-    	'tools': path.join(PATHS.app, 'tools')
+    	'tools': path.join(PATHS.app, 'tools'),
+    	'libs': path.join(PATHS.app, 'libs')
 		}
   },
   output: {

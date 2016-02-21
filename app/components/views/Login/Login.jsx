@@ -14,6 +14,7 @@ import TextField from 'material-ui/lib/text-field'
 
 import { className, style } from './style'
 import { reduxFormConnectToLoginForm } from './connect.js'
+import { onSubmit } from './signals'
 
 const NewCustomers = ({
 	dispatch
@@ -43,15 +44,10 @@ const LoginForm = ({
   	email, password
 	},
 	handleSubmit,
-	invalid,
-	submitting
+	error
 }) => {
 	const applyColorToEmail = checkIsActiveOrHasValue(email)
 	const applyColorToPassword = checkIsActiveOrHasValue(password)
-
-	const onSubmit = (formData) => {
-		alert(JSON.stringify(formData))
-	}
 
 	return (
 		<form
@@ -66,6 +62,7 @@ const LoginForm = ({
 		    underlineFocusStyle={style.underlineFocus}
 		    inputStyle={style.hideAutoFillColorStyle}
 		    errorText={email.touched && email.error ? email.error : ''}
+		    errorStyle={style.error}
 		    autoComplete="off"/>
 		    <TextField {...password}
 		    floatingLabelText="Password"
@@ -74,15 +71,16 @@ const LoginForm = ({
 		    underlineFocusStyle={style.underlineFocus}
 		    inputStyle={style.hideAutoFillColorStyle}
 		    errorText={password.touched && password.error ? password.error : ''}
+		    errorStyle={style.error}
 		    autoComplete="off"/>
 		    <RaisedButton
 		    label="LOGIN"
         type="submit"
-        disabled={invalid || submitting}
         className={css(className.button)}
         style={style.loginButton}
     		labelStyle={style.buttonText}
     		secondary/>
+    		{error && <p style={style.authError}>{error}</p>}
 		  </div>
 		</form>
 	)
@@ -92,8 +90,7 @@ const LoginFormContainer = reduxFormConnectToLoginForm(LoginForm)
 LoginForm.propTypes = {
 	handleSubmit: React.PropTypes.func.isRequired,
 	fields: React.PropTypes.object.isRequired,
-	invalid: React.PropTypes.bool.isRequired,
-	submitting: React.PropTypes.bool.isRequired
+	error: React.PropTypes.string
 }
 
 

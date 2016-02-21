@@ -54,7 +54,9 @@
   "dependencies": {
     "aphrodite": "^0.1.2",
     "components": "^0.1.0",
+    "firebase": "^2.4.1",
     "history": "^2.0.0",
+    "libs": "^0.1.2",
     "material-ui": "^0.14.4",
     "node-uuid": "^1.4.7",
     "react": "^0.14.6",

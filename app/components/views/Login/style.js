@@ -51,5 +51,11 @@ export const style = {
 	},
 	autoCompleteOff: {
 		display: 'none'
+	},
+	error: {
+		textAlign: 'left'
+	},
+	authError: {
+		color: '#f44336'
 	}
 }

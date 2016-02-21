@@ -2,11 +2,13 @@
 'use strict'
 
 import { routeActions } from 'react-router-redux'
-// files
+
 import reconnect from 'tools/reconnect'
+import unAuth from 'libs/firebase/user/unAuth'
+
 // actions
 import { toggle } from 'redux_app/modules/ui/toggle'
-// consts
+
 import { ADMINISTRATOR } from 'tools/constants/user'
 import {
 	HOME, SERVICES, LOGIN, HOME_ADMIN, GALLERY_ADMIN,
@@ -18,6 +20,7 @@ import {
 	MAIN_MENU, CREATE_MENU, FAVOURITES_MENU, CART_MENU
 } from 'tools/constants/stateKeys'
 
+
 const reverseMenuAndGoRoute = (dispatch, menu, route) => (
 	() => {
 		dispatch(toggle(menu))
@@ -28,6 +31,14 @@ const reverseMenuAndGoRoute = (dispatch, menu, route) => (
 const reverseMenu = (dispatch, menu) => (
 	(isOpen) => {
 		dispatch(toggle(menu, isOpen))
+	}
+)
+
+const logout = (dispatch, menu, route) => (
+	() => {
+		dispatch(toggle(menu))
+		dispatch(routeActions.push(route))
+		unAuth()
 	}
 )
 
@@ -76,7 +87,7 @@ const SiteMenu = {
 		reverseMainMenu: reverseMenu(dispatch, MAIN_MENU),
 		onAdminTouched: reverseMenuAndGoRoute(dispatch, MAIN_MENU, HOME_ADMIN),
 		onLoginTouched: reverseMenuAndGoRoute(dispatch, MAIN_MENU, LOGIN),
-		onLogoutTouched: reverseMenuAndGoRoute(dispatch, MAIN_MENU, HOME),
+		onLogoutTouched: logout(dispatch, MAIN_MENU, LOGIN),
 		onServicesTouched: reverseMenuAndGoRoute(dispatch, MAIN_MENU, SERVICES)
 	})
 }
